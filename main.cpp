@@ -3,8 +3,9 @@
 
 // Pin definitions for Gemma M0
 #define NEOPIXEL_PIN A0    // Built-in NeoPixel on Gemma M0
-#define TOUCH_PIN A1      // Touch sensor pin (A1/D2)
+#define TOUCH_PIN A2      // Touch sensor pin (A1/D2)
 #define NUM_PIXELS 12      // Built-in NeoPixel count (can be changed if external strip is used)
+#define BRIGHTNESS 20
 
 // Create NeoPixel object
 Adafruit_NeoPixel pixels(NUM_PIXELS, NEOPIXEL_PIN, NEO_GRB + NEO_KHZ800);
@@ -45,8 +46,9 @@ void setup() {
   Serial.begin(115200);
   
   // Initialize NeoPixel
+  
   pixels.begin();
-  pixels.setBrightness(100); // Adjust brightness (0-255)
+  pixels.setBrightness(BRIGHTNESS); // Adjust brightness (0-255)
   pixels.show(); // Initialize all pixels to 'off'
   
   // Initialize touch pin and get baseline reading
